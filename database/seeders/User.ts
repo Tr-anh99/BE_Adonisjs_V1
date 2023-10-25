@@ -7,6 +7,7 @@ export default class extends BaseSeeder {
       email: 'admin@admin.com',
       name: 'Admin',
       password: 'admin',
+      ds_role: [1, 2],
     })
   }
 }

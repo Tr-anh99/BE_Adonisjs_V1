@@ -11,4 +11,5 @@ export function authRoute() {
   })
     .prefix('auth')
     .middleware(['auth:api,web'])
+    .middleware(['permission'])
 }

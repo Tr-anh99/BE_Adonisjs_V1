@@ -3,8 +3,8 @@ import User from 'App/Models/User'
 
 export default class AuthController {
   public async login(ctx: HttpContextContract) {
-    const { email, password, type } = ctx.request.all()
-    const auth = type == 'token' ? ctx.auth.use('api') : ctx.auth.use('web')
+    const { email, password } = ctx.request.all()
+    const auth = ctx.auth.use('api')
     const emails = email?.trim().split('*')
     const authId = emails[0]
     try {

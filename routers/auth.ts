@@ -10,6 +10,6 @@ export function authRoute() {
     Route.post('logout', 'AuthController.logout')
   })
     .prefix('auth')
-    .middleware(['auth:api,web'])
+    .middleware(['auth'])
     .middleware(['permission'])
 }

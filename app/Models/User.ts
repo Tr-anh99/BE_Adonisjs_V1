@@ -36,4 +36,5 @@ export default class User extends BaseModel {
       authentication.ds_role = JSON.stringify(authentication.ds_role)
     }
   }
+
 }

@@ -11,5 +11,5 @@ export function authRoute() {
   })
     .prefix('auth')
     .middleware(['auth'])
-    .middleware(['permission'])
+    .middleware(['permission:qtht_suanhanvien,qldm_themdemuc'])
 }

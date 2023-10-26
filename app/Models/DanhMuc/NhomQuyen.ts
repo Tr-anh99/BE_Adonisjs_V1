@@ -1,6 +1,8 @@
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class DmNhomQuyen extends BaseModel {
+export default class NhomQuyen extends BaseModel {
+  public static table = 'dm_nhom_quyens'
+
   @column({ isPrimary: true })
   public id: number
 

@@ -1,19 +1,14 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'dm_menus'
+  protected tableName = 'dm_nhom_quyen_quyen_thao_tac'
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('label')
-      table.string('mo_ta')
-      table.integer('id_parent')
-      table.integer('stt')
-      table.string('path')
-      table.string('icon')
-      table.boolean('is_group')
-      table.boolean('is_show')
+      table.integer('id_nhom_quyen')
+      table.integer('id_quyen')
+      table.boolean('trang_thai')
     })
   }
 

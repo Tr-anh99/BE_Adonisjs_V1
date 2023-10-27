@@ -2,9 +2,9 @@ import Route from '@ioc:Adonis/Core/Route'
 
 export function quanTriRoute() {
   Route.group(() => {
-    // Route.get('demo-permission', 'DemoPermissionController.demo').middleware([
-    //   'permission:qtht_suanhanvien,qldm_themdemuc',
-    // ])
+    Route.get('get-ds-menu', 'QuanTriController.get_DSMenu')
+    Route.get('get-menu-by-user', 'QuanTriController.Get_Menu_By_IdUser')
   })
+    .prefix('quan-tri')
     .middleware(['auth'])
 }

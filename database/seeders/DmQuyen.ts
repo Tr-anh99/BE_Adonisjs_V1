@@ -1,6 +1,7 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Menu from 'App/Models/DanhMuc/Menu'
 import NhomQuyen from 'App/Models/DanhMuc/NhomQuyen'
+import NhomQuyenMenu from 'App/Models/DanhMuc/NhomQuyenMenu'
 import NhomQuyenQuyenThaoTac from 'App/Models/DanhMuc/NhomQuyenQuyenThaoTac'
 import QuyenThaoTac from 'App/Models/DanhMuc/QuyenThaoTac'
 
@@ -133,6 +134,29 @@ export default class extends BaseSeeder {
       {
         id_nhom_quyen: 1,
         id_quyen: 8,
+        trang_thai: true,
+      },
+    ])
+
+    await NhomQuyenMenu.createMany([
+      {
+        id_nhom_quyen: 1,
+        id_menu: 1,
+        trang_thai: true,
+      },
+      {
+        id_nhom_quyen: 1,
+        id_menu: 2,
+        trang_thai: true,
+      },
+      {
+        id_nhom_quyen: 2,
+        id_menu: 1,
+        trang_thai: true,
+      },
+      {
+        id_nhom_quyen: 2,
+        id_menu: 2,
         trang_thai: true,
       },
     ])

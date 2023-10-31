@@ -5,15 +5,18 @@ export default class UsersController {
   public async index({ response }: HttpContextContract) {
     try {
       const query = await User.query()
-        .select(['id', 'ten', 'trung_tam_id'])
+        .select(['id', 'ten', 'trung_tam_id', 'nguoi_nhap_id'])
         .preload('trungtam', (trungtamQuery) => {
           trungtamQuery.select('ten')
         })
+        // .preload('danh_sach_tao')
+        .preload('nguoi_nhap')
       return response.status(200).send({
         message: 'Thành công',
         data: query,
       })
     } catch (error) {
+      console.log('🚀 ~ file: UsersController.ts:20 ~ UsersController ~ index ~ error:', error)
       return response.status(500).send({
         message: 'Không thể tìm thấy danh sách nhân viên',
       })
@@ -52,6 +55,7 @@ export default class UsersController {
         data: query,
       })
     } catch (error) {
+      console.log('🚀 ~ file: UsersController.ts:58 ~ UsersController ~ update ~ error:', error)
       return response.status(500).send({
         message: 'Không thành công',
       })

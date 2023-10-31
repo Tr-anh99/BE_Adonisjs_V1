@@ -1,6 +1,14 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { BaseModel, BelongsTo, beforeSave, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  BelongsTo,
+  HasMany,
+  beforeSave,
+  belongsTo,
+  column,
+  hasMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import TrungTam from './DanhMuc/TrungTam'
 
 export default class User extends BaseModel {
@@ -69,4 +77,14 @@ export default class User extends BaseModel {
     foreignKey: 'trung_tam_id',
   })
   public trungtam: BelongsTo<typeof TrungTam>
+
+  @hasMany(() => User, {
+    foreignKey: 'nguoi_nhap_id',
+  })
+  public danh_sach_tao: HasMany<typeof User>
+
+  @belongsTo(() => User, {
+    foreignKey: 'nguoi_nhap_id',
+  })
+  public nguoi_nhap: BelongsTo<typeof User>
 }

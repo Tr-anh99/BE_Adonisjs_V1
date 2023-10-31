@@ -1,9 +1,14 @@
-// import Route from '@ioc:Adonis/Core/Route'
+import Route from '@ioc:Adonis/Core/Route'
 
 export function userRoute() {
-  // Route.group(() => {
-  //   Route.post('login', 'AuthController.login')
-  // }).prefix('auth')
+  Route.group(() => {
+    Route.get('get-user', 'UsersController.index')
+    Route.post('post-user', 'UsersController.store')
+    Route.post('update-user', 'UsersController.update')
+    Route.get('delete-user/:id', 'UsersController.destroy')
+  })
+    .prefix('user')
+    .middleware(['auth'])
 
   // Route.group(() => {
   //   Route.get('me', 'AuthController.me')
